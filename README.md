@@ -5,6 +5,8 @@ straight, sweep eight checkpoints in order around a miniature desert circuit.
 Everything you see is authored in code with Three.js primitives, extrusions and
 canvas textures — no downloaded models, images, fonts or runtime network requests.
 
+The original task brief this project was built from is kept in [`PROMPT.md`](PROMPT.md).
+
 ## Commands
 
 | Command                | What it does                                                        |
