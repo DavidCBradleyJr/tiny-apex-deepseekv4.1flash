@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#f2dfb9" />
+    <meta
+      name="description"
+      content="Tiny Apex — a one-button arcade racing toy on a miniature desert circuit."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23c05f3c'/%3E%3Cpath d='M5 19h22l-4-7H9z' fill='%23f7eed7'/%3E%3Ccircle cx='11' cy='22' r='3.2' fill='%232b2119'/%3E%3Ccircle cx='21' cy='22' r='3.2' fill='%232b2119'/%3E%3C/svg%3E"
+    />
+    <title>Tiny Apex</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="game-canvas" aria-label="Tiny Apex miniature desert race circuit"></canvas>
+      <div id="vignette" aria-hidden="true"></div>
+
+      <header id="hud-top">
+        <div class="chip" id="state-chip" data-state="ready">
+          <span class="chip-label">State</span>
+          <span class="chip-value" id="state-value">Ready</span>
+        </div>
+        <div class="chip">
+          <span class="chip-label">Points</span>
+          <span class="chip-value" id="points-value">0</span>
+        </div>
+        <div class="chip">
+          <span class="chip-label">Laps</span>
+          <span class="chip-value" id="laps-value">0</span>
+        </div>
+        <button id="pause-button" class="ghost-button" type="button" hidden>Pause</button>
+      </header>
+
+      <p id="hint" class="hint">Hold to turn. Release to go straight.</p>
+
+      <div id="steer-wrap">
+        <button
+          id="steer-button"
+          class="steer-button"
+          type="button"
+          aria-label="Hold to turn clockwise"
+        >
+          <span class="steer-icon" aria-hidden="true">&#8635;</span>
+          <span class="steer-label">Turn</span>
+        </button>
+      </div>
+
+      <div id="popups" aria-hidden="true"></div>
+
+      <div id="overlay" class="overlay">
+        <section class="panel" id="panel-ready">
+          <p class="eyebrow">One-button desert circuit</p>
+          <h1>Tiny Apex</h1>
+          <p class="lede">
+            Hold to turn clockwise, release to drive straight. Sweep the eight checkpoints in
+            order — laps score on their own.
+          </p>
+          <ul class="facts">
+            <li><strong>Space</strong> or the <strong>Turn</strong> pedal steers</li>
+            <li><strong>P</strong> or <strong>Esc</strong> pauses &middot; <strong>Enter</strong> starts</li>
+          </ul>
+          <button id="start-button" class="primary-button" type="button">Start race</button>
+        </section>
+
+        <section class="panel" id="panel-paused" hidden>
+          <p class="eyebrow">Race paused</p>
+          <h2>Take your time</h2>
+          <p class="lede">The clock stopped with you. Resume when you are ready.</p>
+          <button id="resume-button" class="primary-button" type="button">Resume</button>
+        </section>
+
+        <section class="panel" id="panel-crashed" hidden>
+          <p class="eyebrow">Run over</p>
+          <h2>Crashed</h2>
+          <p class="lede" id="crash-result">Points 0 &middot; Laps 0</p>
+          <p class="lede small" id="crash-note">
+            The car left the road. The ring marks where the run ended.
+          </p>
+          <button id="restart-button" class="primary-button" type="button">Restart</button>
+        </section>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

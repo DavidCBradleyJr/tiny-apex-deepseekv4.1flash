@@ -1,0 +1,25 @@
+{
+  "name": "tiny-apex",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "description": "Tiny Apex — a one-button arcade racing toy built with vanilla TypeScript, Vite and Three.js.",
+  "scripts": {
+    "dev": "vite",
+    "typecheck": "tsc -p tsconfig.json",
+    "build": "npm run typecheck && vite build",
+    "preview": "vite preview",
+    "test": "tsc -p tsconfig.test.json && node --test dist-test/test/",
+    "verify:browser": "node scripts/verify-browser.mjs"
+  },
+  "dependencies": {
+    "three": "0.186.1"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.4",
+    "@types/three": "0.186.0",
+    "playwright-core": "1.63.0",
+    "typescript": "5.9.3",
+    "vite": "8.3.2"
+  }
+}
